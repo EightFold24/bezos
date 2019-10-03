@@ -4,6 +4,39 @@ public class customer {
     private int custNo;
     private String fName,lName,addr,pCode,town,telNo,email;
 
+    public customer(int newCustNo){
+        setCustNo(newCustNo);
+    }
+    public customer(int newCustNo, String newFName){
+        this(newCustNo);
+        setfName(newFName);
+    }
+    public customer(int newCustNo, String newFName, String newLName){
+        this(newCustNo,newFName);
+        setlName(newLName);
+    }
+    public customer(int newCustNo, String newFName, String newLName, String newAddr){
+        this(newCustNo,newFName, newLName);
+        setAddr(newAddr);
+    }
+
+    public customer(int newCustNo, String newFName, String newLName, String newAddr, String newPCode){
+        this(newCustNo,newFName, newLName, newAddr);
+        setpCode(newPCode);
+    }
+    public customer(int newCustNo, String newFName, String newLName, String newAddr, String newPCode, String newTown){
+        this(newCustNo,newFName, newLName, newAddr, newPCode);
+        setTown(newTown);
+    }
+    public customer(int newCustNo, String newFName, String newLName, String newAddr, String newPCode, String newTown, String newTellNo){
+        this(newCustNo,newFName, newLName, newAddr, newPCode, newTown);
+        setTelNo(newTellNo);
+    }
+    public customer(int newCustNo, String newFName, String newLName, String newAddr, String newPCode, String newTown, String newTellNo, String newEmail){
+        this(newCustNo,newFName, newLName, newAddr, newPCode, newTown, newTellNo);
+        setEmail(newEmail);
+    }
+
     public int getCustNo() {
         return custNo;
     }
