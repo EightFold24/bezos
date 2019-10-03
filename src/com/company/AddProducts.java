@@ -4,18 +4,40 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.*;
 
-public class Main extends JFrame implements ActionListener {
+public class AddProducts extends JFrame implements ActionListener {
 
     private JMenuBar jmb;
     private JMenu customers, products , orders, system;
     private JMenuItem addCustomer, removeCustomer, makeOrders, addProducts, removeProducts, exitSystem;
 
-    public Main() //constructor
+    JLabel lblHeading, lblProdNo, lblProdDesc, lblProdPrice;
+    JTextField txtProdNo, txtProdDesc, txtProdPrice;
+
+    public AddProducts() //Constructor
     {
         getContentPane().setLayout(new GridBagLayout());
 
+        setUndecorated(true);
+
+        lblHeading = new JLabel("Add Product",JLabel.CENTER);
+        lblHeading.setFont(new Font("Serif", Font.BOLD,30));
+        addComp(lblHeading,0,0,4,1,1,1);
+
+        lblProdNo = new JLabel("Product No: ");
+        addComp(lblProdNo,0,1,1,1,1,1);
+        txtProdNo = new JTextField(6);
+        addComp(txtProdNo,1,1,2,1,1,1);
+
+        lblProdDesc = new JLabel("Product Description: ");
+        addComp(lblProdDesc,0,2,1,1,1,1);
+        txtProdDesc = new JTextField(100);
+        addComp(txtProdDesc,1,2,2,1,2,1);
+
+        lblProdPrice = new JLabel("Product Price: ");
+        addComp(lblProdPrice,0,3,1,1,1,1);
+        txtProdPrice = new JTextField(20);
+        addComp(txtProdPrice,1,3,1,1,3,1);
 
         // Menu
         customers = new JMenu("Customers");
@@ -29,7 +51,7 @@ public class Main extends JFrame implements ActionListener {
 
         products = new JMenu("Products");
         addProducts = new JMenuItem("Add Products");
-        addProducts.addActionListener(this);
+        //addCustomer.addActionListener(this);
         products.add(addProducts);
 
         removeProducts = new JMenuItem("Remove Products");
@@ -43,7 +65,7 @@ public class Main extends JFrame implements ActionListener {
 
         system = new JMenu("System");
         exitSystem = new JMenuItem("Exit System");
-        exitSystem.addActionListener(this);
+        //addCustomer.addActionListener(this);
         system.add(exitSystem);
 
         jmb = new JMenuBar();
@@ -71,25 +93,14 @@ public class Main extends JFrame implements ActionListener {
 
     public static void main(String[] args)
     {
-
-        Main frm = new Main();
+        // TODO Auto-generated method stub
+        AddProducts frm = new AddProducts();
         frm.setSize(1000, 700);
         frm.setVisible(true);
     }
 
-
     @Override
-    public void actionPerformed(ActionEvent e)
-    {
-        if(e.getSource() == addProducts)
-        {
-            AddProducts frm = new AddProducts();
-            frm.setVisible(true);
-            frm.setSize(1000,700);
-        }
-        if(e.getSource() == exitSystem)
-        {
-            System.exit(0);
-        }
+    public void actionPerformed(ActionEvent e) {
+
     }
 }
