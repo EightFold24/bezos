@@ -3,17 +3,20 @@ package com.company;
 public class product {
     private int prodNo;
     private String desc;
-    private float price;
+    private double price;
 
-    public product(int newProdNo){
-        setProdNo(newProdNo);
-    }
-    public product(int newProdNo, String newDesc){
-        this(newProdNo);
+    public product(int newProdNo, double newPrice, String newDesc){
+        this(newProdNo, newPrice);
         setDesc(newDesc);
     }
-    public product(int newProdNo, String newDesc, float newPrice){
-        this(newProdNo, newDesc);
+
+    public product(int newProdNo)
+    {
+        setProdNo(newProdNo);
+    }
+
+    public product(int newProdNo, double newPrice){
+        this(newProdNo);
         setPrice(newPrice);
     }
 
@@ -33,11 +36,11 @@ public class product {
         this.desc = desc;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
