@@ -11,8 +11,9 @@ public class AddProducts extends JFrame implements ActionListener {
     private JMenu customers, products , orders, system;
     private JMenuItem addCustomer, removeCustomer, makeOrders, addProducts, removeProducts, exitSystem;
 
-    JLabel lblHeading, lblProdNo, lblProdDesc, lblProdPrice;
+    JLabel lblHeading, lblProdNo, lblProdDesc, lblProdPrice, lblSpace;
     JTextField txtProdNo, txtProdDesc, txtProdPrice;
+    JButton btnAdd;
 
     public AddProducts() //Constructor
     {
@@ -38,6 +39,12 @@ public class AddProducts extends JFrame implements ActionListener {
         addComp(lblProdPrice,0,3,1,1,1,1);
         txtProdPrice = new JTextField(20);
         addComp(txtProdPrice,1,3,1,1,3,1);
+
+        lblSpace = new JLabel(" ");
+        addComp(lblSpace,0,4,1,1,1,1);
+
+        btnAdd = new JButton("Add Product");
+        addComp(btnAdd,0,5,1,1,1,1);
 
         // Menu
         customers = new JMenu("Customers");
