@@ -9,37 +9,47 @@ import java.io.*;
 public class Main extends JFrame implements ActionListener {
 
     private JMenuBar jmb;
-    private JMenu customers, products , orders, system;
-    private JMenuItem addCustomer, removeCustomer, makeOrders, addProducts, removeProducts, exitSystem;
+    private JMenu products , orders, system;
+    private JMenuItem makeOrders, addProducts, removeProducts, viewProducts, alterProducts,  exitSystem;
+    private JButton btnCustomer, btnAdmin;
 
     public Main() //constructor
     {
         getContentPane().setLayout(new GridBagLayout());
 
+        btnCustomer = new JButton("Customer");
+        btnCustomer.addActionListener(this);
+        addComp(btnCustomer,2,1,1,1,0,0);
+
+        btnAdmin = new JButton("Admin");
+        btnAdmin.addActionListener(this);
+        addComp(btnAdmin,2,2,1,1,0,0);
+
+
 
         // Menu
-        customers = new JMenu("Customers");
-        addCustomer = new JMenuItem("Add Customer");
-        //addCustomer.addActionListener(this);
-        customers.add(addCustomer);
-
-        removeCustomer = new JMenuItem("Remove Customer");
-        //removeCustomer.addActionListener(this);
-        customers.add(removeCustomer);
 
         products = new JMenu("Products");
         addProducts = new JMenuItem("Add Products");
-        addProducts.addActionListener(this);
         products.add(addProducts);
 
+
         removeProducts = new JMenuItem("Remove Products");
-        //addCustomer.addActionListener(this);
+        removeProducts.addActionListener(this);
         products.add(removeProducts);
+
+        viewProducts = new JMenuItem("View Products");
+        viewProducts.addActionListener(this);
+        products.add(viewProducts);
+
+        alterProducts = new JMenuItem("Alter Products");
+        alterProducts.addActionListener(this);
+        products.add(alterProducts);
 
         orders = new JMenu("Orders");
         makeOrders = new JMenuItem("Make Orders");
         //addCustomer.addActionListener(this);
-        products.add(makeOrders);
+        orders.add(makeOrders);
 
         system = new JMenu("System");
         exitSystem = new JMenuItem("Exit System");
@@ -47,7 +57,6 @@ public class Main extends JFrame implements ActionListener {
         system.add(exitSystem);
 
         jmb = new JMenuBar();
-        jmb.add(customers);
         jmb.add(products);
         jmb.add(orders);
         jmb.add(system);
@@ -71,24 +80,47 @@ public class Main extends JFrame implements ActionListener {
 
     public static void main(String[] args)
     {
-
         Main frm = new Main();
         frm.setSize(1000, 700);
         frm.setVisible(true);
+
     }
 
 
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        if(e.getSource() == addProducts) {
-            AddProducts frm = new AddProducts();
-            frm.setVisible(true);
-            frm.setSize(1000, 700);
-        }
         if(e.getSource() == exitSystem)
         {
             System.exit(0);
+        }
+        if(e.getSource() == addProducts)
+        {
+            AddProducts frm1 = new AddProducts();
+            frm1.setSize(1000, 700);
+            frm1.show();
+        }
+        if(e.getSource() == btnAdmin){
+            addProducts.enable(true);
+            addProducts.show();
+            removeProducts.enable(true);
+            alterProducts.enable(true);
+            viewProducts.hide();
+            makeOrders.hide();
+
+            if(e.getSource() == addProducts)
+            {
+                AddProducts frm1 = new AddProducts();
+                frm1.setSize(1000, 700);
+                frm1.setVisible(true);
+            }
+        }
+        if(e.getSource() == btnCustomer){
+            addProducts.hide();
+            removeProducts.hide();
+            alterProducts.hide();
+            viewProducts.enable(true);
+            makeOrders.enable(true);
         }
     }
 }
