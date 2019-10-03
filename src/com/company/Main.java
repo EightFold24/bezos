@@ -81,11 +81,10 @@ public class Main extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        if(e.getSource() == addProducts)
-        {
+        if(e.getSource() == addProducts) {
             AddProducts frm = new AddProducts();
             frm.setVisible(true);
-            frm.setSize(1000,700);
+            frm.setSize(1000, 700);
         }
         if(e.getSource() == exitSystem)
         {
