@@ -5,6 +5,18 @@ public class product {
     private String desc;
     private float price;
 
+    public product(int newProdNo){
+        setProdNo(newProdNo);
+    }
+    public product(int newProdNo, String newDesc){
+        this(newProdNo);
+        setDesc(newDesc);
+    }
+    public product(int newProdNo, String newDesc, float newPrice){
+        this(newProdNo, newDesc);
+        setPrice(newPrice);
+    }
+
     public int getProdNo() {
         return prodNo;
     }
