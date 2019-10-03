@@ -69,12 +69,8 @@ public class customer {
     }
 
     public String toString()
-
     {
-
         return String.format("Customer %d: %s %s. Address: %s, %s, %s. Email : %s",
-
                 this.getCustNo(), this.getfName(), this.getlName(), this.getAddr(),this.getTown(),this.getpCode(), this.getEmail());
-
     }
 }
